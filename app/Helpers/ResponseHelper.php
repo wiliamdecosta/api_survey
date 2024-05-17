@@ -23,6 +23,6 @@ class ResponseHelper
             'data' => null,
             'errors' => $errors,
             'page' => null,
-        ]);
+        ], $code);
     }
 }
