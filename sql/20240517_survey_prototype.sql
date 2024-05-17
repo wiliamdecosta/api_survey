@@ -27,7 +27,7 @@ CREATE TABLE IF NOT EXISTS `failed_jobs` (
   UNIQUE KEY `failed_jobs_uuid_unique` (`uuid`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
--- Data exporting was unselected.
+-- Dumping data for table survey.failed_jobs: ~0 rows (approximately)
 
 -- Dumping structure for table survey.migrations
 CREATE TABLE IF NOT EXISTS `migrations` (
@@ -37,7 +37,13 @@ CREATE TABLE IF NOT EXISTS `migrations` (
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
--- Data exporting was unselected.
+-- Dumping data for table survey.migrations: ~0 rows (approximately)
+INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
+	(1, '2014_10_12_000000_create_users_table', 1),
+	(2, '2014_10_12_100000_create_password_reset_tokens_table', 1),
+	(3, '2019_08_19_000000_create_failed_jobs_table', 1),
+	(4, '2019_12_14_000001_create_personal_access_tokens_table', 1),
+	(5, '2024_05_13_130414_create_relawan_table', 2);
 
 -- Dumping structure for table survey.password_reset_tokens
 CREATE TABLE IF NOT EXISTS `password_reset_tokens` (
@@ -47,7 +53,7 @@ CREATE TABLE IF NOT EXISTS `password_reset_tokens` (
   PRIMARY KEY (`email`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
--- Data exporting was unselected.
+-- Dumping data for table survey.password_reset_tokens: ~0 rows (approximately)
 
 -- Dumping structure for table survey.personal_access_tokens
 CREATE TABLE IF NOT EXISTS `personal_access_tokens` (
@@ -66,7 +72,7 @@ CREATE TABLE IF NOT EXISTS `personal_access_tokens` (
   KEY `personal_access_tokens_tokenable_type_tokenable_id_index` (`tokenable_type`,`tokenable_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
--- Data exporting was unselected.
+-- Dumping data for table survey.personal_access_tokens: ~0 rows (approximately)
 
 -- Dumping structure for table survey.relawan
 CREATE TABLE IF NOT EXISTS `relawan` (
@@ -84,7 +90,9 @@ CREATE TABLE IF NOT EXISTS `relawan` (
   CONSTRAINT `relawan_user_id_foreign` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
--- Data exporting was unselected.
+-- Dumping data for table survey.relawan: ~0 rows (approximately)
+INSERT INTO `relawan` (`id`, `user_id`, `name`, `nik`, `tgl_lahir`, `created_by`, `updated_by`, `created_at`, `updated_at`) VALUES
+	(1, 3, 'Wiliam Decosta', '327927716236', '1987-07-09 17:00:00', NULL, NULL, '2024-05-13 08:20:13', '2024-05-13 08:20:13');
 
 -- Dumping structure for table survey.users
 CREATE TABLE IF NOT EXISTS `users` (
@@ -101,7 +109,10 @@ CREATE TABLE IF NOT EXISTS `users` (
   UNIQUE KEY `users_email_unique` (`email`)
 ) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
--- Data exporting was unselected.
+-- Dumping data for table survey.users: ~2 rows (approximately)
+INSERT INTO `users` (`id`, `name`, `email`, `email_verified_at`, `password`, `role_type`, `remember_token`, `created_at`, `updated_at`) VALUES
+	(1, 'Admin', 'admin@email.com', NULL, '$2y$12$9jkYnUNrgQcLl0EyltuYo.a/nXgfZ7DTHpd5.aOcJCXKpcuBOOnoy', 'ADMIN', NULL, '2024-05-13 07:14:09', '2024-05-13 07:14:09'),
+	(3, 'Wiliam Decosta', 'wiliamdecosta@gmail.com', NULL, '$2y$12$MmCR7jV7K3sd9SMoccMQ/e9/iq4sn1bePvZvKsT/fV6HYoYgYshKS', 'RELAWAN', NULL, '2024-05-13 08:20:13', '2024-05-13 08:20:13');
 
 /*!40103 SET TIME_ZONE=IFNULL(@OLD_TIME_ZONE, 'system') */;
 /*!40101 SET SQL_MODE=IFNULL(@OLD_SQL_MODE, '') */;
