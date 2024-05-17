@@ -12,7 +12,7 @@ class ResponseHelper
             'message' => $message,
             'errors' => null,
             'page' => $page,
-        ]);
+        ],200);
     }
 
     public static function error($message = 'Terjadi kesalahan.', $errors = [], $code = 400)
